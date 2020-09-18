@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Appo from './react-logo/App.js';
+import Appi from './clients/App.js';
+import Person from './personnes/App.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+    state = {
+        persons: [
+            {name:'Max', age:'28'},
+            {name:'Manu', age:'29'},
+            {name:'Stephanie', age:'26'}
+        ]
+    }
+
+switchNameHandler = () => {
+    console.log("clicked")
+}
+
+  render() {
+    return (
+      <div className="App">
+        <Appo />
+        <Appi />
+        <button onClick={this.switchNameHandler}>Switch</button>
+        <div className="div-persons">
+            <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
+            <Person name={this.state.persons[1].name} age={this.state.persons[1].age} />
+            <Person name={this.state.persons[2].name} age={this.state.persons[2].age}>I love soccer</Person>
+        </div>
+      </div>
+    );
+    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
+  }
 }
 
 export default App;
+
+  /*<React.StrictMode>
+    <App />
+    <Appi />
+    <Person name="Max" />
+    <Person name="Manu" />
+    <Person name="Stephanie" >I love soccer</Person>
+  </React.StrictMode>*/

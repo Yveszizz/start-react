@@ -1,0 +1,9 @@
+
+.person {
+    display: inline-block;
+    border: 1px solid white;
+    margin : 10px;
+    width: 200px;
+    padding: 10px;
+    vertical-align: middle;
+}

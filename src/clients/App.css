@@ -1,0 +1,12 @@
+h1{
+    color:white;
+}
+.liste-clients{
+    color:white;
+    text-align: center;
+    
+}
+ul {
+    list-style: none;
+    //text-align: left;
+}
