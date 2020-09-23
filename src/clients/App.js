@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Client from './Clients';
+import ClientForm from './ClientForm'
 
  
 
@@ -12,7 +14,6 @@ class Appi extends React.Component {
         {id: 2, nom: "Monsieur 2"},
         {id: 3, nom: "Monsieur 3"}
         ],
-        nouveauClient: "",
     };
     
     handleDelete = (id) => {
@@ -23,42 +24,27 @@ class Appi extends React.Component {
         this.setState({clients: clients});
     }
     
-    handleSubmit = (e) => {
-        e.preventDefault();
-        
-        const id = new Date().getTime();
-        const nom =  this.state.nouveauClient;
-        
-        const client = {id: id, nom: nom}
-        
+    handleAdd = client => {
         const clients = this.state.clients.slice();
         clients.push(client);
         
-        this.setState({clients: clients, nouveauClient:""});
+        this.setState({clients: clients});
+        
+        
     }
-    
-    handleChange = (e) => {
-        this.setState({nouveauClient: e.currentTarget.value})
-    }
-    
-    
 
     render(){
-    return (
-    <div className="liste-clients">
-        <h1>Liste des clients</h1> 
-        <ul>
-            {this.state.clients.map(client =>( 
-            <li>
-                {client.nom} <button onClick= {()=>this.handleDelete(client.id)} >X</button>
-            </li> 
-        ))}
-        </ul>
-        <form onSubmit={this.handleSubmit}>
-            <input onChange={this.handleChange} value={this.state.nouveauClient} placeholder="Ajouter client" type="text"/><button>Valider</button>
-        </form>
-    </div>
-        );
+        return (
+        <div className="liste-clients">
+            <h1>Liste des clients</h1> 
+            <ul>
+                {this.state.clients.map(client =>( 
+                <Client details={client} onDelete={this.handleDelete} />
+            ))}
+            </ul>
+            <ClientForm onClientAdd={this.handleAdd}/>
+        </div>
+            );
     }
 }
  

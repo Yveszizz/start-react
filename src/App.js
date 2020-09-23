@@ -36,16 +36,7 @@ switchNameHandler = () => {
         </div>
       </div>
     );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
 export default App;
-
-  /*<React.StrictMode>
-    <App />
-    <Appi />
-    <Person name="Max" />
-    <Person name="Manu" />
-    <Person name="Stephanie" >I love soccer</Person>
-  </React.StrictMode>*/
