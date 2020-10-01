@@ -8,23 +8,20 @@ import Person from './personnes/App.js'
 class App extends Component {
    state = {
         persons: [
-            {name:'Max', age:'28'},
-            {name:'Manu', age:'29'},
-            {name:'Stephanie', age:'26'}
+            {id:'1',name:'Max', age:'28'},
+            {id:'2',name:'Manu', age:'29'},
+            {id:'3',name:'Stephanie', age:'26'}
         ],
         otherState: "some other value",
         showPersons: false
     };
     
     
-   switchNameHandler = (newName) => {
-        this.setState({
-            persons: [
-                {name: newName, age:'28'},
-                {name:'Manu', age:'29'},
-                {name:'Stephanie', age:'29'}
-            ]})
-    }
+   deletePersonHandler = (personIndex) => {
+       const persons = this.state.persons.slice();
+       persons.splice(personIndex,1);
+       this.setState({persons:persons})
+   }
 
     nameChangedHandler = (e) => {
         this.setState({
@@ -41,31 +38,31 @@ class App extends Component {
         this.setState({showPersons: !doesShow});
     }
     
-    render(){
+    render () {
         
-       return (
-          <div className="App">
-            <Appo />
-            <Appi />
-            <button onClick={this.togglePersonsHandler}>Switch</button>
-            {
-            this.state.showPersons ?
+        let persons = null;
+        
+        if (this.state.showPersons) {
+            persons = (
                 <div className="div-persons">
-                    <Person 
-                        name={this.state.persons[0].name} 
-                        age={this.state.persons[0].age} />
-                    <Person 
-                        changed={this.nameChangedHandler}
-                        name={this.state.persons[1].name} 
-                        age={this.state.persons[1].age} />
-                    <Person
-                        click={this.switchNameHandler.bind(this,'Yvesziz')}
-                        name={this.state.persons[2].name} 
-                        age={this.state.persons[2].age}>I love soccer</Person>
-                </div> : null
-            }
+                    {this.state.persons.map((person, index) => {
+                        return <Person 
+                                click={() => this.deletePersonHandler(index)}
+                                name={person.name} 
+                                age={person.age} 
+                                key={person.id}/>
+                    })}
+                </div>
+            )
+        }
 
-          </div>
+       return (
+            <div className="App">
+                <Appo />
+                <Appi />
+                <button onClick={this.togglePersonsHandler}>Switch</button>
+                {persons}
+            </div>
         ); 
     }
 }
