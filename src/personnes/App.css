@@ -7,3 +7,11 @@
     padding: 10px;
     vertical-align: middle;
 }
+
+.red{
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+}

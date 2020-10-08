@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Appo from './react-logo/App.js';
 import Appi from './clients/App.js';
-import Person from './personnes/App.js'
+import Person from './personnes/App.js';
+import Radium from 'radium';
 
 
 class App extends Component {
@@ -45,6 +46,18 @@ class App extends Component {
     }
     
     render () {
+        const style = {
+            backgroundColor:'green',
+            border:'1px solid blue',
+            color:'white',
+            padding:'8px',
+            cursor: 'pointer',
+            margin:'10px',
+            ':hover':{
+                backgroundColor:'lightgreen',
+                color:'black',
+            }
+        }
         
         let persons = null;
         
@@ -60,18 +73,35 @@ class App extends Component {
                                 changed={(e) => this.nameChangedHandler(e, person.id)}/>
                     })}
                 </div>
-            )
+            );
+            style.backgroundColor ='red';
+            style[':hover']={
+                backgroundColor:'salmon',
+                color:'black',
+            }
+        }
+        
+        const classes= [];
+        
+        if (this.state.persons.length <= 2){
+            classes.push('red')
+            console.log(classes)
+        }
+        
+        if (this.state.persons.length <= 1){
+            classes.push('blod')
         }
 
        return (
             <div className="App">
                 <Appo />
                 <Appi />
-                <button onClick={this.togglePersonsHandler}>Switch</button>
+                <p className={classes.join(' ')}> This is really working!</p>
+                <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
                 {persons}
             </div>
         ); 
     }
 }
 
-export default App; 
+export default Radium(App); 
