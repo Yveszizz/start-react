@@ -3,15 +3,15 @@ import './App.css';
 import Appo from './react-logo/App.js';
 import Appi from './clients/App.js';
 import Person from './personnes/App.js';
-import Radium from 'radium';
+import Radium, {StyleRoot} from 'radium';
 
 
 class App extends Component {
    state = {
         persons: [
-            {id:'1', name:'Max', age:'28'},
-            {id:'2', name:'Manu', age:'29'},
-            {id:'3', name:'Stephanie', age:'26'}
+            {id:'azaz', name:'Max', age:'28'},
+            {id:'zezez', name:'Manu', age:'29'},
+            {id:'ereerr', name:'Stephanie', age:'26'}
         ],
         otherState: "some other value",
         showPersons: false
@@ -93,13 +93,15 @@ class App extends Component {
         }
 
        return (
-            <div className="App">
-                <Appo />
-                <Appi />
-                <p className={classes.join(' ')}> This is really working!</p>
-                <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
-                {persons}
-            </div>
+           <StyleRoot>
+                <div className="App">
+                    <Appo />
+                    <Appi />
+                    <p className={classes.join(' ')}> This is really working!</p>
+                    <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>
+                    {persons}
+                </div>
+            </StyleRoot>
         ); 
     }
 }
