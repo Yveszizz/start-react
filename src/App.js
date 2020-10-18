@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Appo from './react-logo/App.js';
-import Appi from './clients/App.js';
-import Person from './personnes/App.js';
+import Header from './Components/react-logo/Header.js';
+import Appi from './Components/clients/App.js';
+import Person from './Components/persons/App.js';
 import Radium, {StyleRoot} from 'radium';
 
 
@@ -95,7 +95,7 @@ class App extends Component {
        return (
            <StyleRoot>
                 <div className="App">
-                    <Appo />
+                    <Header />
                     <Appi />
                     <p className={classes.join(' ')}> This is really working!</p>
                     <button style={style} onClick={this.togglePersonsHandler}>Toggle Persons</button>

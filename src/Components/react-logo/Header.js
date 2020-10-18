@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 //import './App.css';
 
-function Appo() {
+function Header() {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,4 +21,4 @@ function Appo() {
   );
 }
 
-export default Appo;
+export default Header;
