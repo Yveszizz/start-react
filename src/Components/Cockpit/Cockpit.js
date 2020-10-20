@@ -20,8 +20,12 @@ const cockpit = (props) => {
                 color:'black',
             }*/
 
-    const assignedClasses= [];
+    const assignedClasses = [];
     let btnClass ='';
+
+    if (props.showPersons){
+        
+    }
 
     if (props.persons.length <= 2){
         assignedClasses.push('red')
@@ -34,10 +38,11 @@ const cockpit = (props) => {
     return (
         <div>
             <p className={assignedClasses.join(' ')}> This is really working!</p>
-            <button onClick={props.clicked}>Toggle Persons</button> {/*style={style} */}
+            <button 
+                className={btnClass} 
+                onClick={props.clicked}>Toggle Persons</button> {/* style={style} */}
         </div>
     );
 };
-
 
 export default cockpit;

@@ -69,9 +69,9 @@ class App extends Component {
                     <Header />
                     <Appi />
                     <Cockpit 
-                    persons={this.state.persons} 
-                    clicked={this.state.togglePersonsHandler} 
-                    showPersons={this.state.showPersons} />
+                        persons={this.state.persons} 
+                        clicked={this.togglePersonsHandler} 
+                        showPersons={this.state.showPersons} />
                     {persons}
                 </div>
             </StyleRoot>
