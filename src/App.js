@@ -17,7 +17,7 @@ class App extends Component {
         otherState: "some other value",
         showPersons: false
     };
-    
+     
     
    deletePersonHandler = (personIndex) => {
        const persons = this.state.persons.slice();
