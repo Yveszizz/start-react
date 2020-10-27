@@ -18,7 +18,10 @@ class App extends Component {
         showPersons: false
     };
      
-    
+    componentDidMount() {
+        console.log('[App.js] componentDidMount');
+    }
+
    deletePersonHandler = (personIndex) => {
        const persons = this.state.persons.slice();
        persons.splice(personIndex,1);

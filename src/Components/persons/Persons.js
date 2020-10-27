@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import Person from './Person/Person'
 
 class Persons extends Component {
+
+    componentWillR
+
     static getDrivedStateFromProps(props, state) {
         console.log('[Persons.js] getDrivedStateFromProps');
         return state;
@@ -14,10 +17,12 @@ class Persons extends Component {
 
     getSnapshotBeforeUpdate(prevProps, prevState){
         console.log('[Persons.js] getSnapshotBeforeUpdate')
+        return {message : 'Snapshot !'};
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps, prevState, snapshot){
         console.log('[Persons.js] componentDidUpdate')
+        console.log(snapshot);
     }
     
     render () {
