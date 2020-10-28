@@ -17,9 +17,23 @@ class App extends Component {
         otherState: "some other value",
         showPersons: false
     };
+
+    static getDrivedStateFromProps(props, state){
+        console.log('[App.js] getDrivedStateFromProps', props)
+        return state;
+    }
      
     componentDidMount() {
         console.log('[App.js] componentDidMount');
+    }
+
+    shouldComponentUpdate(){
+        console.log('[App.js] shouldComponentUpdate')
+        return true;
+    }
+
+    componentDidUpdate(){
+        console.log('[App.js] componentDidUpdate')
     }
 
    deletePersonHandler = (personIndex) => {
