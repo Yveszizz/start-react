@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
-const cockpit = (props) => {
-
+const Cockpit = (props) => {
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+    });
     /*const style = {
         backgroundColor:'green',
         border:'1px solid blue',
@@ -45,4 +47,4 @@ const cockpit = (props) => {
     );
 };
 
-export default cockpit;
+export default Cockpit;
